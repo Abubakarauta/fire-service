@@ -25,16 +25,16 @@
     <!-- ======= Blog Single Section ======= -->
     <section id="blog" class="blog">
       <div class="container" data-aos="fade-up">
-{% for i in department_detail   %}
-<div class="row">
-
+        <div class="row">
+          
+          {% for i in detail   %}
   <div class="col-lg-8 entries">
 
     <article class="entry entry-single">
 
       <div class="entry-img">
-        {{i.image.url}}
-        <img src="" alt="" class="img-fluid">
+        
+        <img src="{{i.image.url}}" alt="" class="img-fluid">
       </div>
 
       <h2 class="entry-title">
@@ -63,7 +63,7 @@
         <h3>Department Emergency Number</h3>
         <p>{{i.emergencyNumber}} </p>
         
-        <h3>Department Descriptio.</h3>
+        <h3>Department Description.</h3>
         <p>{{i.station_description}} </p>
     
       </div>

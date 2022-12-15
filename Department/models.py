@@ -31,6 +31,8 @@ class NationalFireAcademy(models.Model):
 
 
 class Staff(models.Model):
+    image=models.ImageField( upload_to='staff', max_length=None)
+    is_team=models.BooleanField(default= False)
     name=models.CharField( max_length=50)
     rank=models.CharField( max_length=50)
     genderChoice=(

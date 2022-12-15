@@ -62,7 +62,7 @@
                     <p>Et nobis maiores eius. Voluptatibus ut enim blanditiis atque harum sint. Laborum eos ipsum ipsa odit magni. Incidunt hic ut molestiae aut qui. Est repellat minima eveniet eius et quis magni nihil. Consequatur dolorem quaerat quos qui similique accusamus nostrum rem vero</p>
                   </div>
                   <div class="col-lg-4 text-center order-1 order-lg-2">
-                    <img src="assets/img/features-1.png" alt="" class="img-fluid">
+                    <img src="{% static 'assets/img/features-1.png' %}" alt="" class="img-fluid">
                   </div>
                 </div>
               </div>
@@ -74,7 +74,7 @@
                     <p>Ea ipsum voluptatem consequatur quis est. Illum error ullam omnis quia et reiciendis sunt sunt est. Non aliquid repellendus itaque accusamus eius et velit ipsa voluptates. Optio nesciunt eaque beatae accusamus lerode pakto madirna desera vafle de nideran pal</p>
                   </div>
                   <div class="col-lg-4 text-center order-1 order-lg-2">
-                    <img src="assets/img/features-2.png" alt="" class="img-fluid">
+                    <img src="{% static 'assets/img/features-2.png' %}" alt="" class="img-fluid">
                   </div>
                 </div>
               </div>
@@ -86,7 +86,7 @@
                     <p>Iure officiis odit rerum. Harum sequi eum illum corrupti culpa veritatis quisquam. Neque necessitatibus illo rerum eum ut. Commodi ipsam minima molestiae sed laboriosam a iste odio. Earum odit nesciunt fugiat sit ullam. Soluta et harum voluptatem optio quae</p>
                   </div>
                   <div class="col-lg-4 text-center order-1 order-lg-2">
-                    <img src="assets/img/features-3.png" alt="" class="img-fluid">
+                    <img src="{% static 'assets/img/features-3.png' %}" alt="" class="img-fluid">
                   </div>
                 </div>
               </div>
@@ -98,7 +98,7 @@
                     <p>Eaque consequuntur consequuntur libero expedita in voluptas. Nostrum ipsam necessitatibus aliquam fugiat debitis quis velit. Eum ex maxime error in consequatur corporis atque. Eligendi asperiores sed qui veritatis aperiam quia a laborum inventore</p>
                   </div>
                   <div class="col-lg-4 text-center order-1 order-lg-2">
-                    <img src="assets/img/features-4.png" alt="" class="img-fluid">
+                    <img src="{% static 'assets/img/features-4.png' %}" alt="" class="img-fluid">
                   </div>
                 </div>
               </div>
@@ -110,74 +110,80 @@
                     <p>Exercitationem nostrum omnis. Ut reiciendis repudiandae minus. Omnis recusandae ut non quam ut quod eius qui. Ipsum quia odit vero atque qui quibusdam amet. Occaecati sed est sint aut vitae molestiae voluptate vel</p>
                   </div>
                   <div class="col-lg-4 text-center order-1 order-lg-2">
-                    <img src="assets/img/features-5.png" alt="" class="img-fluid">
+                    <img src="{% static 'assets/img/features-5.png' %}" alt="" class="img-fluid">
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
+        
       </div>
     </section><!-- End Features Section -->
+    
+    
+   
 
        <!-- ======= Blog Section ======= -->
        <section id="blog" class="blog">
         <div class="container" data-aos="fade-up">
-  {% for i in department  %} 
-  <div class="row">
-
-    <div class="col-lg-8 entries">
-
-      <article class="entry">
-
-        <div class="entry-img">
-          Departments image
-          {{i.image.url}}
-        </div>
-
-        <h2 class="entry-title">
-          <a href="{% url 'department_detail' %}"> {{i.name}} Department </a>
-        </h2>
-
-        <div class="entry-meta">
-          <ul>
-            <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="{% static 'blog-single' %}"><time datetime="2020-01-01">  {{i.date_created}}</time></a></li>
-            <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="{% static 'blog-single' %}">12 Comments</a></li>
-          </ul>
-        </div>
-
-        <div class="entry-content">
-          <p>
-            Departments Content <br>
-          {{i.station_description}} 
-       </p>
-          <div class="read-more">
-
-               will change url to department_details
-
-            <a href="{% url 'department' %}">view Department</a>
-          </div>
-        </div>
-
-      </article><!-- End blog entry -->
-
-
-      <div class="blog-pagination">
-        <ul class="justify-content-center">
-          <li><a href="{% static '#' %}">1</a></li>
-          <li class="active"><a href="{% static '#' %}">2</a></li>
-          <li><a href="{% static '#' %}">3</a></li>
-        </ul>
-      </div>
-
-    </div><!-- End blog entries list -->
-
   
-  </div>
   
+  
+              <div class="row">
 
-  {% endfor %}
+                <div class="col-lg-8 entries">
+
+                  {% for D in dep  %} 
+    
+                  <article class="entry">
+              
+                    <div class="entry-img">
+                      Departments image
+                        <img src="{{D.image.url}}" class="img-fluid" alt=""> 
+              
+                    </div>
+              
+                    <h2 class="entry-title">
+                      <a href=""> {{D.name}} Department </a>
+                    </h2>
+              
+                    <div class="entry-meta">
+                      <ul>
+                        <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="{% static 'blog-single' %}"><time datetime="2022-01-01">  {{D.date_created}}</time></a></li>
+                        <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="{% static 'blog-single' %}">12 Comments</a></li>
+                      </ul>
+                    </div>
+                    
+                    <div class="entry-content">
+                      <p>
+                        Departments Content <br>
+                        {{D.station_description}} 
+                      </p>
+                      <div class="read-more">
+                        
+                        will change url to department_details
+                        
+                        <a href="{% url 'department' %}">view Department</a>
+                      </div>
+                    </div>
+                    
+                  </article><!-- End blog entry -->
+                  {% endfor %}
+                        
+                        <div class="blog-pagination">
+                          <ul class="justify-content-center">
+                      <li><a href="{% static '#' %}">1</a></li>
+                      <li class="active"><a href="{% static '#' %}">2</a></li>
+                      <li><a href="{% static '#' %}">3</a></li>
+                    
+                         </div>
+                         
+                        </div><!-- End blog entries list -->
+                        
+                        
+             </div>
+                      
         </div>
       </section><!-- End Blog Section -->
   

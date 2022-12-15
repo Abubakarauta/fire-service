@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Stations
+from .models import Stations,Staff
 
 # Create your views here.
 def index(request):
@@ -8,10 +8,11 @@ def index(request):
 def about(request):
     return render(request,'about.html')
 
-def department(request,):
-    dep=Stations.objects.all()
+def department(request):
+    dep = Stations.objects.all()
+
     context={
-        'dep':dep
+        'dep': dep
     }
     return render(request,'departments.html',context)
 
@@ -33,11 +34,10 @@ def contact(request):
     return render(request,'contact.html')
 
 def members(request):
-    return render(request,'team.html')
+    context={
+        'members' : Staff.objects.filter(is_team=True)
+    }
+    return render(request,'team.html',context)
 
 def survival_view(request):
     return render(request, 'survivals.html')
-
-
-def staff(request):
-    return render(request, 'staff.html')
